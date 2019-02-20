@@ -1,0 +1,25 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=7b7320fec1296bbabd9c8c9f79be4329ee3252380289eac8df14d14a37e86fd4
+    - DB=pgsql
+sudo: false
+language: ruby
+cache: bundler
+rvm:
+  - 2.6.1
+services:
+  - postgresql
+before_install:
+  - gem update --system
+  - gem install bundler
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'CREATE DATABASE quiply_test;' -U postgres
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+scripts:
+  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rspec spec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
