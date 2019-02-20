@@ -1,5 +1,10 @@
 // import the CSS framework
 // Do not use *= require in Sass or your other stylesheets will not be able to access the Bootstrap mixins and variables.
+
+// Color of the year 2018: Pantone 18-3838 TCX;
+$theme-colors: (
+  primary: #5F4B8B
+) !default;
 @import "bootstrap";
 
 // make all images responsive by default
