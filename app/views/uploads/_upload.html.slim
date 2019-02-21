@@ -8,9 +8,9 @@ tr
       = Upload.human_attribute_name(:uploaded_at)
       = ' '
       = upload.file.created_at
-    td= link_to '&#x2B07;'.html_safe, rails_blob_path(upload.file, disposition: :attachment), class: 'btn btn-default', title: "Download #{upload.filename}"
+    td
+      a.btn.btn-default( href=rails_blob_path(upload.file, disposition: :attachment) data={ toggle: :tooltip, placement: :right } title="Download #{upload.filename}" ) &#x2B07
   - else
     td= private_upload_url(upload.token)
     td
-      -# TODO: not yet working for copy
-      button.btn.btn-default( data={ placement: :button, toggle: :tooltip, copy: private_upload_url(upload.token) } title='Copy to Clipboard' type='button') &#x1F4CB;
+      button.btn.btn-default( data={ placement: :right, toggle: :tooltip, clipboard: { text: private_upload_url(upload.token) } } title='Copy to Clipboard' type='button') &#x1F4CB;
