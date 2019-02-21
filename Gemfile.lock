@@ -212,6 +212,8 @@ GEM
     puma (3.12.0)
     pundit (2.0.1)
       activesupport (>= 3.0.0)
+    pundit-matchers (1.6.0)
+      rspec-rails (>= 3.0.0)
     rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -397,6 +399,7 @@ DEPENDENCIES
   pry-rescue
   puma (~> 3.11)
   pundit
+  pundit-matchers (~> 1.6.0)
   rails (~> 5.2.2)
   rails_apps_pages
   rails_apps_testing

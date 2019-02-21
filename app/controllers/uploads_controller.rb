@@ -1,14 +1,16 @@
+include Pundit
 class UploadsController < ApplicationController
   before_action :set_upload_via_token, only: %i[edit update]
-  # after_action :verify_authorized, except: %i[edit update]
+  after_action :verify_authorized
+  after_action :verify_policy_scoped, only: :index
 
   def index
-    @uploads = Upload.all
-    @upload = Upload.new
+    @uploads = policy_scope(Upload)
+    @upload = authorize Upload.new, :new?
   end
 
   def create
-    @upload = Upload.new(upload_params_for_create)
+    @upload = authorize Upload.new(upload_params_for_create)
 
     if @upload.save
       redirect_to uploads_path, notice: 'Upload assignment created.'
@@ -17,9 +19,13 @@ class UploadsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @upload
+  end
 
   def update
+    authorize @upload
+
     if @upload.update(upload_params_for_update)
       redirect_to private_upload_url(@upload.token), notice: 'File uploaded'
     else

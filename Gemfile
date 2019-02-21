@@ -64,6 +64,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'pundit-matchers', '~> 1.6.0'
   gem 'selenium-webdriver'
 end
 
