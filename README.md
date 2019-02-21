@@ -53,6 +53,9 @@ should indicate that the file is there (and show it's name), but it should not b
 heroku create your-assignation-app-name
 heroku config:set ADMIN_PASSWORD="YourSecurePassword"
 heroku config:set HOSTNAME="YourSecurePassword"
+heroku config:set S3_ACCESS_KEY='nnnn'
+heroku config:set S3_SECRET_ACCESS_KEY='nnnn'
+heroku config:set S3_BUCKET='your.bucket.name'
 heroku buildpacks:set https://github.com/bundler/heroku-buildpack-bundler2
 git push heroku master
 heroku run rake db:migrate
