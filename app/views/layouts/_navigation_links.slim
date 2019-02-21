@@ -1,5 +1,6 @@
 li= link_to 'About', page_path('about'), class: 'nav-link'
 - if current_admin
   li= link_to 'logout', destroy_admin_session_path, class: 'nav-link', method: :delete
+  li= link_to 'uploads', uploads_path, class: 'nav-link'
 - else
   li= link_to 'admin login', new_admin_session_path, class: 'nav-link'

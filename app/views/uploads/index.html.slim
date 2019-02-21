@@ -1,0 +1,17 @@
+h1 Listing uploads
+-# .table-responsive
+table.table.table-hover.table-bordered
+  thead.thead-dark
+    tr
+      th Email
+      th Description
+      th
+      th
+
+  tbody= render @uploads
+  tfoot.table-dark
+    tr= form_for Upload.new do |f|
+      td= f.email_field :email, class: 'form-control', placeholder: 'email@example.com'
+      td= f.text_field :description, class: 'form-control', placeholder: 'optional description'
+      td= f.button type: :submit, class: 'btn btn-primary'
+      td

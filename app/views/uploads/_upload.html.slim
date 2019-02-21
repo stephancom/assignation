@@ -1,0 +1,16 @@
+tr
+  td= upload.email
+  td= upload.description
+  - if upload.file_attached?
+    td
+      = upload.filename
+      br
+      = Upload.human_attribute_name(:uploaded_at)
+      = ' '
+      = upload.file.created_at
+    td= link_to '&#x2B07;'.html_safe, rails_blob_path(upload.file, disposition: :attachment), class: 'btn btn-default', title: "Download #{upload.filename}"
+  - else
+    td= private_upload_url(upload.token)
+    td
+      -# TODO: not yet working for copy
+      button.btn.btn-default( data={ placement: :button, toggle: :tooltip, copy: private_upload_url(upload.token) } title='Copy to Clipboard' type='button') &#x1F4CB;

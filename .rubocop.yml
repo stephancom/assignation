@@ -36,6 +36,8 @@ Metrics/BlockLength:
     - route_param
 
 Style/BlockDelimiters:
+  Exclude:
+    - 'spec/factories/*.rb'
   EnforcedStyle: semantic
   FunctionalMethods:
     - before

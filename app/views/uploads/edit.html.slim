@@ -1,0 +1,22 @@
+- if @upload.file_attached?
+  h1 File uploaded
+  h2= @upload.file.created_at
+  h3= @upload.filename
+- else
+  h1 Welcome #{@upload.email} - Upload your File
+
+  = form_for @upload, url: private_submit_path(@upload.token), multipart: true do |f|
+    - if @upload.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@upload.errors.count, "error")} prohibited this upload from being saved:"
+        ul
+          - @upload.errors.full_messages.each do |message|
+            li = message
+    .form-group
+      = f.label :description
+      = f.text_field :description, class: 'form-control', placeholder: :optional
+    .custom-file
+      = f.file_field :file, class: 'custom-file-input'
+      = f.label :file, class: 'custom-file-label'
+
+    .form-group.text-right= f.button 'Upload', type: :submit, class: 'btn btn-primary mt-3'
