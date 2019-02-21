@@ -18,6 +18,10 @@ class UploadPolicy < ApplicationPolicy
     !@record.file.attached?
   end
 
+  def edit?
+    true
+  end
+
   class Scope < Scope
     def initialize(admin = nil, scope = nil)
       raise Pundit::NotAuthorizedError if admin.nil?
