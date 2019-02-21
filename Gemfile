@@ -20,6 +20,7 @@ gem 'devise'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'pg'
+gem 'pundit'
 gem 'slim-rails'
 
 group :development do
