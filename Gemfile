@@ -11,11 +11,9 @@ gem 'rails', '~> 5.2.2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'aws-sdk-s3'
 gem 'bootstrap', '~> 4.2.0'
 gem 'devise'
 gem 'high_voltage'
