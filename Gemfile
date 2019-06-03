@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'aws-sdk-s3'
-gem 'bootstrap', '~> 4.2.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'high_voltage'
 gem 'jquery-rails'
