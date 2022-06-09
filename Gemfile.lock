@@ -227,7 +227,8 @@ GEM
       pry (>= 0.12.0)
     psych (3.1.0)
     public_suffix (3.0.3)
-    puma (3.12.6)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     pundit (2.0.1)
       activesupport (>= 3.0.0)
     pundit-matchers (1.6.0)
@@ -418,7 +419,7 @@ DEPENDENCIES
   pg
   pry-rails
   pry-rescue
-  puma (~> 3.12)
+  puma (~> 4.3)
   pundit
   pundit-matchers (~> 1.6.0)
   rails (~> 5.2.2)
